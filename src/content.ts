@@ -57,10 +57,10 @@ export default class Content {
         let próba: string = "Alma";
         const próba2: string = "Alma";
 
-        res.write(`${age} ${name} ${isUpdated}`);
-        res.write(`${fruits} ${person}`);
-        res.write(`${Points.George} ${Points.Jack} ${Points.John} ${Points.Robert}`);
-        res.write(`${password} ${data}`);
+        res.write(` ${age} ${name} ${isUpdated} `);
+        res.write(`${fruits} ${person} `);
+        res.write(`${Points.George} ${Points.Jack} ${Points.John} ${Points.Robert} `);
+        res.write(`${password} ${data} `);
 
         // <---- Fejezd be a kódolást
 
