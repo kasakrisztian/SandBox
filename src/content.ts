@@ -49,7 +49,6 @@ export default class Content {
         password = "ABC";
         let data: any = "Hello World!";
         data = 25;
-        data = false;
         function writeNumbers(): void {
             res.write("123456");
         }
@@ -58,11 +57,10 @@ export default class Content {
         let próba: string = "Alma";
         const próba2: string = "Alma";
 
-        res.write(`${age} ${name} ${isUpdated} ${fruits} `);
+        res.write(`${age} ${name} ${isUpdated}`);
         res.write(`${fruits} ${person}`);
         res.write(`${Points.George} ${Points.Jack} ${Points.John} ${Points.Robert}`);
         res.write(`${password} ${data}`);
-        res.write(`${number}`);
 
         // <---- Fejezd be a kódolást
 
