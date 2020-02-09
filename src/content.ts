@@ -59,7 +59,7 @@ export default class Content {
 
         res.write(` ${age} ${name} ${isUpdated} `);
         res.write(`${fruits} ${person} `);
-        res.write(`${Points.George} ${Points.Jack} ${Points.John} ${Points.Robert} `);
+        res.write(`${Points.George}, ${Points.Jack}, ${Points.John}, ${Points.Robert} `);
         res.write(`${password} ${data} `);
 
         // <---- Fejezd be a kódolást
