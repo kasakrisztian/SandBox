@@ -1,6 +1,10 @@
-﻿import fs from "fs";
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable no-var */
+import fs, { write } from "fs";
 import http from "http";
-import url from "url";
 
 interface InputInterface {
     name: string;
@@ -28,32 +32,37 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        res.write("Egyszerű Hello World!\n");
+        var age: number = 32; // number variable
+        var name: string = "John"; // string variable
+        var isUpdated: boolean = true; // Boolean variable
+        let fruits: Array<string>; //array
+        fruits = ["Banana", "Strawberry", "Watermelon"];
+        var person: [number, string, boolean] = [1, "Robert", true]; //tuple
+        enum Points {
+            George = 5,
+            John = 10,
+            Robert = 15,
+            Jack = 20
+        }
+        let password: string | number; //union
+        password = 123;
+        password = "ABC";
+        let data: any = "Hello World!";
+        data = 25;
+        data = false;
+        function writeNumbers(): void {
+            res.write("123456");
+        }
+        let number: void = writeNumbers();
 
-        // Tetszőleges html teg-ek és attribútumok beépítése:
-        res.write("<span style='color: blue;'><i>Színes és dőlt Hello World!'</i></span>\n");
+        let próba: string = "Alma";
+        const próba2: string = "Alma";
 
-        // Egyszerű input JSON állományból:
-        const input: InputInterface = JSON.parse(fs.readFileSync("input.json", "utf-8"));
-
-        // String template használata
-        res.write(`1. feladat: ${input.name} kora: ${input.age}\n`);
-
-        // Változó definiálása:
-        let neme = "";
-        neme = input.male ? "férfi" : "nő";
-        res.write(`2. feladat: ${input.name} neme: ${neme}\n`);
-
-        // Input form-al és <input type='number'>-el:
-        // URL paraméter(ek) (itt kor) ellenőrzése,  kiolvasása, alapértelmezett értéke 18:
-        const u = url.parse(req.url as string, true).query;
-        // ha "kor" paraméter nincs megadva vagy "kor" paraméter üres string,
-        // akkor legyen 18 az értéke, egyébként konvertáljuk számra a "kor" paraméter értékét:
-        // let kor: number = u.kor === undefined || u.kor === "" ? 18 : parseInt(u.kor as string);
-        let kor: number = parseInt(u.kor as string);
-        if (isNaN(kor) || kor < 0 || kor > 99) kor = 18; // egy kis ellenőrzés
-        res.write(`3. feladat: Kérem a korod [0-99]: <input type='text' name='kor' value=${kor} style='width:3em;'>\n`);
-        res.write(`4. feladat: Te ${kor} éves vagy!\n`);
+        res.write(`${age} ${name} ${isUpdated} ${fruits} `);
+        res.write(`${fruits} ${person}`);
+        res.write(`${Points.George} ${Points.Jack} ${Points.John} ${Points.Robert}`);
+        res.write(`${password} ${data}`);
+        res.write(`${number}`);
 
         // <---- Fejezd be a kódolást
 
